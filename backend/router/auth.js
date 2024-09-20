@@ -129,7 +129,7 @@ router.post('/create-llm', async (req, res) => {
           Make sure to distinguish between the main question and the probing question, and only ask the probing question when the response to the main question requires further clarification.`,
       states: questions.map((question, index) => ({
         name: `question_${index + 1}`,
-        state_prompt: `"${question.questionText.split('(')[0]}"\n(If necessary, only then ask the probing question in parentheses: "${question.questionText.split('(')[1]}")`,
+        state_prompt: `"${question.questionText.split('(')[0]}"\n(If necessary, only then ask the probing question in parentheses: "${question.questionText.split('(')[1]}" Try to switch to the probing question smoothly.).`,
         edges: index < questions.length - 1 ? [
           {
             destination_state_name: `question_${index + 2}`,
@@ -138,7 +138,7 @@ router.post('/create-llm', async (req, res) => {
         ] : [],
       })),
       starting_state: 'question_1',
-      begin_message: "I will start by asking you a series of questions. Please answer each question before we proceed to the next one."
+      begin_message: "Hello there! I am Ryan. An AI Designed to gather feedbacks. Today I am gathering feedback on ${projectName}. This conversation will last for about 10 minutes and will include 6-10 questions. So are you ready to share your thoughts?"
     })
     
     const createdAgent = await retellClient.agent.create({
@@ -292,7 +292,7 @@ router.post('/updatellm', async (req, res) => {
           Make sure to distinguish between the main question and the probing question, and only ask the probing question when the response to the main question requires further clarification.`,
       states: questions.map((question, index) => ({
         name: `question_${index + 1}`,
-        state_prompt: `"${question.questionText.split('(')[0]}"\n(If necessary, only then ask the probing question in parentheses: "${question.questionText.split('(')[1]}")`,
+        state_prompt: `"${question.questionText.split('(')[0]}"\n(If necessary, only then ask the probing question in parentheses: "${question.questionText.split('(')[1]}". Switch to the probing question smoothly)`,
         edges: index < questions.length - 1 ? [
           {
             destination_state_name: `question_${index + 2}`,
@@ -301,8 +301,7 @@ router.post('/updatellm', async (req, res) => {
         ] : [],
       })),
       starting_state: 'question_1',
-      begin_message: "I will start by asking you a series of questions. Please answer each question before we proceed to the next one."
-    };
+      begin_message: "Hello there! I am Ryan. An AI Designed to gather feedbacks. Today I am gathering feedback on ${projectName}. This conversation will last for about 10 minutes and will include 6-10 questions. So are you ready to share your thoughts?"
 
     // Step 3: Update the LLM using the LLM ID
     const llmResponse = await retellClient.llm.update(llm_id,updatePayload);

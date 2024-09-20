@@ -265,7 +265,7 @@ const GetInsights = () => {
       try {
         const calls = location.state.call; 
     
-        const response = await axios.post(`http://localhost:5000/get-insights`, { calls });
+        const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/get-insights`, { calls });
         // Set the classification insights from the response
         setInsights(response.data.classification);
       } catch (err) {

@@ -122,14 +122,14 @@ router.post('/create-llm', async (req, res) => {
     
           1. **Ask the Main Question**: Very Very Important!!!-Start by asking the main question from the provided list. The probing question is included in parentheses next to the main question.
           2. **Evaluate the Response**: ONLY After receiving the response, determine if the answer is general or vague.
-          3. **If the response is general or vague or unclear**:Then only,I repeat only and only then Ask the probing question that is provided in parentheses.
+          3. **If the response is general or vague**:Then only,I repeat only and only then Ask the probing question that is provided in parentheses.
           4. **If the response is specific and clear**: Do not ask the probing question.
           5. **Adhere to Format**: Strictly Ensure that the probing questions are used exactly as provided, only when necessary.
-    
+          6. **Stricly consider the following instruction by the user before proceeding: ${prompt}
           Make sure to distinguish between the main question and the probing question, and only ask the probing question when the response to the main question requires further clarification.`,
       states: questions.map((question, index) => ({
         name: `question_${index + 1}`,
-        state_prompt: `"${question.questionText.split('(')[0]}"\n(If answer is unclear or requires elaboration, only then ask the probing question in parentheses: "${question.questionText.split('(')[1]}")`,
+        state_prompt: `"${question.questionText.split('(')[0]}"\n(If necessary, only then ask the probing question in parentheses: "${question.questionText.split('(')[1]}")`,
         edges: index < questions.length - 1 ? [
           {
             destination_state_name: `question_${index + 2}`,
@@ -288,11 +288,11 @@ router.post('/updatellm', async (req, res) => {
           3. **If the response is general or vague or unclear**:Then only,I repeat only and only then Ask the probing question that is provided in parentheses.
           4. **If the response is specific and clear**: Never ask the probing question.
           5. **Adhere to Format**: Strictly Ensure that the probing questions are used exactly as provided, only when necessary.
-    
+          6. 6. **Stricly consider the following instruction by the user before proceeding: ${prompt}
           Make sure to distinguish between the main question and the probing question, and only ask the probing question when the response to the main question requires further clarification.`,
       states: questions.map((question, index) => ({
         name: `question_${index + 1}`,
-        state_prompt: `Main Question: "${question.questionText.split('(')[0]}"\n(If answer is unclear or requires elaboration, only then ask the probing question in parentheses: "${question.questionText.split('(')[1]}")`,
+        state_prompt: `"${question.questionText.split('(')[0]}"\n(If necessary, only then ask the probing question in parentheses: "${question.questionText.split('(')[1]}")`,
         edges: index < questions.length - 1 ? [
           {
             destination_state_name: `question_${index + 2}`,

@@ -129,7 +129,7 @@ router.post('/create-llm', async (req, res) => {
           Make sure to distinguish between the main question and the probing question, and only ask the probing question when the response to the main question requires further clarification.`,
       states: questions.map((question, index) => ({
         name: `question_${index + 1}`,
-        state_prompt: `Main Question: "${question.questionText.split('(')[0]}"\n(If needed, only then ask the probing question in parentheses: "${question.questionText.split('(')[1]"})`,
+        state_prompt: `Main Question: "${question.questionText.split('(')[0]}"\n(If needed, only then ask the probing question in parentheses: "${question.questionText.split('(')[1]}")`,
         edges: index < questions.length - 1 ? [
           {
             destination_state_name: `question_${index + 2}`,
@@ -292,7 +292,7 @@ router.post('/updatellm', async (req, res) => {
           Make sure to distinguish between the main question and the probing question, and only ask the probing question when the response to the main question requires further clarification.`,
       states: questions.map((question, index) => ({
         name: `question_${index + 1}`,
-        state_prompt: `Main Question: "${question.questionText.split('(')[0]}"\n(If needed, only then ask the probing question in parentheses: "${question.questionText.split('(')[1]"})`,
+        state_prompt: `Main Question: "${question.questionText.split('(')[0]}"\n(If needed, only then ask the probing question in parentheses: "${question.questionText.split('(')[1]}")`,
         edges: index < questions.length - 1 ? [
           {
             destination_state_name: `question_${index + 2}`,

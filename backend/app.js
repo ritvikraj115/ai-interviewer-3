@@ -13,8 +13,10 @@ app.use(express.urlencoded({ limit: '10mb', extended: true }));
 app.use(cors({
     origin: process.env.REACT_APP_FRONTEND_URL, // Replace with your frontend URL
     methods: ['GET', 'POST','PUT'],
-    allowedHeaders: ['Content-Type', 'Authorization']
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
   }));
+app.options('*', cors()); 
 
 app.use(bodyParser.json());
 app.use(require('./router/auth'))

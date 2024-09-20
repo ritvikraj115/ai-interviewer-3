@@ -11,20 +11,12 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
 
 app.use(cors({
-  origin: 'https://ai-interviewer-3.vercel.app', // The exact frontend URL
+  origin: process.env.REACT_APP_FRONTEND_URL, // The exact frontend URL
   methods: ['GET', 'POST', 'PUT', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true // If you're handling cookies or sessions
 }));
 
-// Enable pre-flight requests for all routes
-app.options('*', (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://ai-interviewer-3.vercel.app');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Authorization, Content-Type');
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
-  res.sendStatus(204); // No content for preflight requests
-});
 
 app.use(bodyParser.json());
 app.use(require('./router/auth'))

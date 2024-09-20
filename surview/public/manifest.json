@@ -1,19 +1,19 @@
 {
-  "short_name": "React App",
+  "short_name": "Surview.io",
   "name": "Create React App Sample",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "https://www.canva.com/design/DAGQnpLaHqs/HDRYAt-39wTo42sugLvnQg/edit?utm_content=DAGQnpLaHqs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "https://www.canva.com/design/DAGQnpLaHqs/HDRYAt-39wTo42sugLvnQg/edit?utm_content=DAGQnpLaHqs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "https://www.canva.com/design/DAGQnpLaHqs/HDRYAt-39wTo42sugLvnQg/edit?utm_content=DAGQnpLaHqs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
       "type": "image/png",
       "sizes": "512x512"
     }

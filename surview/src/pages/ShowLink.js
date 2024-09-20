@@ -232,7 +232,7 @@ function ShowLink() {
     return <div>No agent ID provided.</div>;
   }
 
-  const link = `https://ai-interview-2.vercel.app/${agentId}`;
+  const link = `https://retell-ai-2.vercel.app/${agentId}`;
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(link).then(

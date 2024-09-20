@@ -234,6 +234,7 @@ function InterviewLinkPage() {
   const navigate= useNavigate();
   const [prompt, setPrompt] = useState('');
   const formattedQuestions = location.state.questions
+  const projectName= location.state.projectName;
   .map((question, index) => {
     // Only map questions at even indexes
     if (index % 1 === 0) {
@@ -284,7 +285,8 @@ function InterviewLinkPage() {
   const createLLM=(async()=>{
     const response=await axios.post(`${process.env.REACT_APP_BACKEND_URL}/create-llm`, {
       questions,
-      prompt
+      prompt,
+      projectName: location.state.projectName
     });
     console.log(response.data.agent_id);
     console.log(questions)

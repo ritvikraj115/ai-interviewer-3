@@ -107,7 +107,7 @@ router.post('/generate-questions', async (req, res) => {
 
 
 router.post('/create-llm', async (req, res) => {
-  const { questions, prompt } = req.body;
+  const { questions, prompt, projectName } = req.body;
   // console.log(prompt)
   // console.log(questions[0].questionText)
   // Validate questions input

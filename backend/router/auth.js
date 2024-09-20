@@ -302,7 +302,7 @@ router.post('/updatellm', async (req, res) => {
         ] : [],
       })),
       starting_state: 'question_1',
-      begin_message: `Hello there! I am Ryan. An AI Designed to gather feedbacks. Today I am gathering feedback on ${projectName}. This conversation will last for about 10 minutes and will include 6-10 questions. So are you ready to share your thoughts?`
+     
     }
     // Step 3: Update the LLM using the LLM ID
     const llmResponse = await retellClient.llm.update(llm_id,updatePayload);

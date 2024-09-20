@@ -3,17 +3,17 @@
   "name": "Create React App Sample",
   "icons": [
     {
-      "src": "https://www.canva.com/design/DAGQnpLaHqs/HDRYAt-39wTo42sugLvnQg/edit?utm_content=DAGQnpLaHqs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
+      "src": "Yellow_and_Black_Modern_Media_Logo-removebg-preview.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "https://www.canva.com/design/DAGQnpLaHqs/HDRYAt-39wTo42sugLvnQg/edit?utm_content=DAGQnpLaHqs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
+      "src": "Yellow_and_Black_Modern_Media_Logo-removebg-preview.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "https://www.canva.com/design/DAGQnpLaHqs/HDRYAt-39wTo42sugLvnQg/edit?utm_content=DAGQnpLaHqs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
+      "src": "Yellow_and_Black_Modern_Media_Logo-removebg-preview.png",
       "type": "image/png",
       "sizes": "512x512"
     }

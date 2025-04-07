@@ -141,13 +141,17 @@ router.post('/create-llm', async (req, res) => {
       begin_message: `Hello there! I am Ryan. An AI Designed to gather feedbacks. Today I am gathering feedback on ${projectName}. This conversation will last for about 10 minutes and will include 6-10 questions. So are you ready to share your thoughts?`
     })
     
-    const createdAgent = await retellClient.agent.create({
-      llm_websocket_url: llmResponse.llm_websocket_url,  // Use the passed WebSocket URL from LLM creation
-      voice_id: '11labs-Adrian',  // Define voice ID
-      agent_name: projectName,  // Agent name
-      interruption_sensitivity: 0.8,
-      responsiveness:0.8,
-    });
+  const createdAgent = await retellClient.agent.create({
+  response_engine: {
+    llm_id: llmResponse.llm_id,
+    type: "retell-llm",
+  },
+  llm_websocket_url: llmResponse.llm_websocket_url,  // Use the passed WebSocket URL from LLM creation
+  voice_id: '11labs-Adrian',  // Define voice ID
+  agent_name: projectName,  // Agent name
+  interruption_sensitivity: 0.8,
+  responsiveness: 0.8,
+});
     
     res.status(200).json({
       message: 'LLM created successfully',
